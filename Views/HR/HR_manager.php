@@ -1,3 +1,4 @@
+
 <!DOCTYPE HTML>
 <!--
 	Introspect by TEMPLATED
@@ -100,9 +101,9 @@ body {font-family: Arial, Helvetica, sans-serif;}
 		<!-- Header -->
 			<header id="header">
 				<div class="inner">
-					<a href="HR_manager.html" class="logo">JUPITER</a>
+					<a href="HR_manager.php" class="logo">JUPITER</a>
 					<nav id="nav">
-						<a href="HR_manager.html">Home</a>
+						<a href="HR_manager.php">Home</a>
 						<a href="generic.html">Generic</a>
 						<a href="elements.html">Elements</a>
 					</nav>
@@ -261,12 +262,11 @@ body {font-family: Arial, Helvetica, sans-serif;}
 			    </div>
 			    <div class="modal-body">
 			      <ul>
-							<li><a href="elements.html">Department1</a></li>
-							<li><a href="#">Department2</a></li>
-							<li><a href="#">Department3</a></li>
-							<li><a href="#">Department4</a></li>
-							<li><a href="#">Department5</a></li>
-							<li><a href="#">Department6</a></li>
+							<li><a href="elements.html">Finance</a></li>
+							<li><a href="#">Human Resource</a></li>
+							<li><a href="#">Marketing</a></li>
+							<li><a href="#">IT</a></li>
+							<li><a href="#">Transport</a></li>
 							<ul>
 			    </div>
 			    <div class="modal-footer">

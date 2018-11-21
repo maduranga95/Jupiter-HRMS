@@ -21,7 +21,7 @@ else { // User exists
 
             if($user['user_type']== 'hr_manager') {
 
-                header("location:../views/HR/HR_manager.html");
+                header("location:../views/HR/HR_manager.php");
             }
             else if ($user['user_type']== 'employee')
             {
