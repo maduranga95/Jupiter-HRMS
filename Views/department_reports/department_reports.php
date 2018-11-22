@@ -277,6 +277,29 @@ if ($result->num_rows > 0) {
 
 </div>
 
+<!-- The Modal -->
+<div id="myModal1" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="close">&times;</span>
+            <h2 style="color:black">Budget Report</h2>
+        </div>
+        <div class="modal-body">
+            <p>According to our Latestst Finantial Statements the budget of this Department for thi year is stated below.</p>
+            <div1>$68768.00</div1>    <!-- Enter budget value taken from the database here -->
+            <br><br><br>
+        </div>
+        <div class="modal-footer">
+            <h3 style="color:white">JUPITER HRMS</h3>
+        </div>
+    </div>
+
+</div>
+
+
+
 
 <!-- Scripts -->
 <script src="assets/js/jquery.min.js"></script>
@@ -307,6 +330,34 @@ if ($result->num_rows > 0) {
     window.onclick = function (event) {
         if (event.target == modal) {
             modal.style.display = "none";
+        }
+    }
+</script>
+
+<script>
+    // Get the modal
+    var modal1 = document.getElementById('myModal1');
+
+    // Get the button that opens the modal
+    var btn1 = document.getElementById("myBtn1");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[1];
+
+    // When the user clicks the button, open the modal
+    btn1.onclick = function () {
+        modal1.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+        modal1.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == modal1) {
+            modal1.style.display = "none";
         }
     }
 </script>
