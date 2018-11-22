@@ -1,6 +1,6 @@
 
 <?php
-require 'db.php';
+require '../../controls/db.php';
 $result = $mysqli->query("SELECT employee.id,employee.name,employment_details.job_title,department.name,payroll_information.pay_grade_level 
 FROM employee left join employment_details on employee.id = employment_details.employ_id 
 left join payroll_information on employee.id = payroll_information.employ_id 
@@ -191,7 +191,7 @@ if ($result->num_rows > 0) {
                         Job Title
                     </th>
                     <th>
-                        Department ID
+                        Department
                     </th>
                     <th>
                         Pay Grade
