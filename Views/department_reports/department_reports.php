@@ -7,7 +7,8 @@
  */
 
 require '../../controls/db.php';
-$result = $mysqli->query("SELECT * FROM employee left join employment_details on employee.id=employment_details.id where department ='finance' ");
+$department = $mysqli->escape_string($_GET['department']);
+$result = $mysqli->query("SELECT * FROM employee left join employment_details on employee.id=employment_details.id where department ='$department' ");
 
 
 if ($result->num_rows > 0) {

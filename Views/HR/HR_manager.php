@@ -262,7 +262,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 			    </div>
 			    <div class="modal-body">
 			      <ul>
-							<li><a href="../department_reports/department_reports.php">Finance</a></li>
+							<li><a href="../department_reports/department_reports.php?department=finance">Finance</a></li>
 							<li><a href="#">Human Resource</a></li>
 							<li><a href="#">Marketing</a></li>
 							<li><a href="#">IT</a></li>
