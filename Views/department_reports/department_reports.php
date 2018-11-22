@@ -8,7 +8,14 @@
 
 require '../../controls/db.php';
 $department = $mysqli->escape_string($_GET['department']);
-$result = $mysqli->query("SELECT * FROM employee left join employment_details on employee.id=employment_details.id where department ='$department' ");
+
+$result_department = $mysqli->query("SELECT * FROM department where name ='$department' ");
+$department_id_result = $result_department->fetch_assoc();
+$department_id = $department_id_result['department_id'];
+
+
+
+$result = $mysqli->query("SELECT * FROM employee left join employment_details on employee.id=employment_details.employ_id where department_id ='$department_id' ");
 
 
 if ($result->num_rows > 0) {

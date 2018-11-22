@@ -9,7 +9,6 @@ $username = $mysqli->escape_string($_POST['username']);
 $result = $mysqli->query("SELECT * FROM user WHERE username='$username'");
 
 
-
 if ( $result->num_rows == 0 ){ // User doesn't exist
     header("location:../views/login_fail.html");
 }

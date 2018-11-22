@@ -10,5 +10,5 @@ require 'config.php';
 $host = 'localhost';
 $user = 'root';
 $pass = '';
-$db = 'hr_db';
+$db = 'hr_db_check';
 $mysqli = new mysqli($host,$user,$pass,$db) or die($mysqli->error);
