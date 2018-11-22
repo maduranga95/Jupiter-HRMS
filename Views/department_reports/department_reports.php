@@ -29,6 +29,15 @@ if ($result->num_rows > 0) {
 
 }
 
+//code for budget report
+$result_department_budget = $mysqli->query("SELECT  budget FROM department where name ='$department' ");
+if ($result_department_budget->num_rows > 0) {
+    $budget_result = $result_department_budget->fetch_assoc();
+    $budget = $budget_result['budget'];
+} else {
+    header("location:../error.php");
+} ?>
+
 ?>
 
 
@@ -216,7 +225,7 @@ if ($result->num_rows > 0) {
                 </header>
             </div>
             <ul class="actions">
-                <li><a id="myBtn3" class="button alt">CHECK REPORT</a></li>
+                <li><a id="myBtn2" class="button alt">CHECK REPORT</a></li>
             </ul>
         </article>
     </div>
@@ -295,7 +304,7 @@ if ($result->num_rows > 0) {
         </div>
         <div class="modal-body">
             <p>According to our Latestst Finantial Statements the budget of this Department for thi year is stated below.</p>
-            <div1>$68768.00</div1>    <!-- Enter budget value taken from the database here -->
+            <div1> <?php echo $budget ?> Rupees</div1>     <!-- Enter budget value taken from the database here -->
             <br><br><br>
         </div>
         <div class="modal-footer">
