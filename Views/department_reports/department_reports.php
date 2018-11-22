@@ -111,6 +111,13 @@ if ($result->num_rows > 0) {
         background-color: red;
         color: white;
     }
+	
+	div1 {
+        width: 320px;
+        padding: 10px;
+        border: 5px solid gray;
+        margin: 0;
+    }
 
     /* Add Animation */
     @-webkit-keyframes slideIn {
@@ -199,7 +206,7 @@ if ($result->num_rows > 0) {
                 </header>
             </div>
             <ul class="actions">
-                <li><a href="#" class="button alt">CHECK REPORT</a></li>
+                <li><a id="myBtn1" class="button alt">CHECK REPORT</a></li>
             </ul>
         </article>
         <article class="alt">
