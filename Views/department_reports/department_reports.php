@@ -15,7 +15,7 @@ $department_id = $department_id_result['department_id'];
 
 
 
-$result = $mysqli->query("SELECT * FROM employee left join employment_details on employee.id=employment_details.employ_id where department_id ='$department_id' ");
+$result = $mysqli->query("SELECT * FROM employee left join employment_details on employee.id=employment_details.employ_id  where department_id ='$department_id' ");
 
 
 if ($result->num_rows > 0) {
