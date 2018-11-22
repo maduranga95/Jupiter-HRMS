@@ -16,7 +16,10 @@ left join leave_application on leave_application.employ_id = employee.id where d
 
 <?php
 require 'db.php';
-$result = $mysqli->query("SELECT  employee.id,employee.name,employment_details.job_title,department.name,payroll_information.pay_grade_level FROM employee left join employee_details on employee.id = employee_details.id ");
+$result = $mysqli->query("SELECT employee.id,employee.name,employment_details.job_title,department.name,payroll_information.pay_grade_level 
+FROM employee left join employment_details on employee.id = employment_details.employ_id 
+left join payroll_information on employee.id = payroll_information.employ_id 
+left join department on employment_details.department_id=department.department_id");
 
 ?>
 

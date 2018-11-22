@@ -164,7 +164,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 							<p>General details about each and every employee in JUPITER. This will include normal details which will be needed in dat today activities.</p>
 						</div>
 						<ul class="actions">
-							<li><a href="../employee_report/employee_report.html" class="button alt">CHECK EMPLOYEE REPORT</a></li>
+							<li><a href="../employee_report/employee_report.php" class="button alt">CHECK EMPLOYEE REPORT</a></li>
 						</ul>
 					</article>
 				</div>
