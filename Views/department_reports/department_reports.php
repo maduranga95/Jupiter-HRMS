@@ -29,24 +29,6 @@ if ($result->num_rows > 0) {
 
 }
 
-//code for budget report
-
-$result_department_budget = $mysqli->query("SELECT  budget FROM department where name ='$department' ");
-
-
-if ($result_department_budget->num_rows > 0) {
-    $budget_result = $result_department_budget->fetch_assoc();
-
-    $budget = $budget_result['budget'];
-
-
-} else {
-    header("location:../error.php");
-
-} ?>
-
-
-
 ?>
 
 
@@ -214,7 +196,7 @@ if ($result_department_budget->num_rows > 0) {
                 </header>
             </div>
             <ul class="actions">
-                <li><a id="myBtn" class="button alt">CHECK REPORT</a></li>
+                <li><a id="myBtn0" class="button alt">CHECK REPORT</a></li>
             </ul>
         </article>
         <article class="alt">
@@ -234,7 +216,7 @@ if ($result_department_budget->num_rows > 0) {
                 </header>
             </div>
             <ul class="actions">
-                <li><a href="#" class="button alt">CHECK REPORT</a></li>
+                <li><a id="myBtn3" class="button alt">CHECK REPORT</a></li>
             </ul>
         </article>
     </div>
@@ -268,7 +250,7 @@ if ($result_department_budget->num_rows > 0) {
 </section>
 
 <!-- The Modal -->
-<div id="myModal" class="modal">
+<div id="myModal0" class="modal">
 
     <!-- Modal content -->
     <div class="modal-content">
@@ -313,8 +295,41 @@ if ($result_department_budget->num_rows > 0) {
         </div>
         <div class="modal-body">
             <p>According to our Latestst Finantial Statements the budget of this Department for thi year is stated below.</p>
-            <div1> <?php echo $budget ?> Rupees</div1>    <!-- Enter budget value taken from the database here -->
+            <div1>$68768.00</div1>    <!-- Enter budget value taken from the database here -->
             <br><br><br>
+        </div>
+        <div class="modal-footer">
+            <h3 style="color:white">JUPITER HRMS</h3>
+        </div>
+    </div>
+
+</div>
+
+<!-- The Modal -->
+<div id="myModal2" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="close">&times;</span>
+            <h2 style="color:black">Employee Details Report</h2>
+        </div>
+        <div class="modal-body">
+            <table id="myTable">
+                <tr>
+                    <th>
+                        ID
+                    </th>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Total Leaves
+                    </th>
+                </tr>
+
+            </table>
+            <br>
         </div>
         <div class="modal-footer">
             <h3 style="color:white">JUPITER HRMS</h3>
@@ -333,29 +348,29 @@ if ($result_department_budget->num_rows > 0) {
 <script src="assets/js/main.js"></script>
 <script>
     // Get the modal
-    var modal = document.getElementById('myModal');
+    var modal0 = document.getElementById('myModal0');
 
     // Get the button that opens the modal
-    var btn = document.getElementById("myBtn");
+    var btn0 = document.getElementById("myBtn0");
 
     // Get the <span> element that closes the modal
     var span = document.getElementsByClassName("close")[0];
 
     // When the user clicks the button, open the modal
-    btn.onclick = function () {
-        modal.style.display = "block";
+    btn0.onclick = function () {
+        modal0.style.display = "block";
     }
 
     // When the user clicks on <span> (x), close the modal
     span.onclick = function () {
-        modal.style.display = "none";
+        modal0.style.display = "none";
     }
+
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function (event) {
-        if (event.target == modal1) {
-            modal1.style.display = "none";
+        if (event.target == modal0) {
+            modal0.style.display = "none";
         }
-    }
     }
 </script>
 
@@ -387,6 +402,39 @@ if ($result_department_budget->num_rows > 0) {
     }
 </script>
 
+<script>
+    // Get the modal
+    var modal2 = document.getElementById('myModal2');
+
+    // Get the button that opens the modal
+    var btn2 = document.getElementById("myBtn2");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[2];
+
+    // When the user clicks the button, open the modal
+    btn2.onclick = function () {
+        modal2.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+        modal2.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == modal2) {
+            modal2.style.display = "none";
+        }
+        if (event.target == modal1) {
+            modal1.style.display = "none";
+        }
+        if (event.target == modal0) {
+            modal0.style.display = "none";
+        }
+    }
+</script>
 
 </body>
 </html>
