@@ -263,10 +263,10 @@ body {font-family: Arial, Helvetica, sans-serif;}
 			    <div class="modal-body">
 			      <ul>
 							<li><a href="../department_reports/department_reports.php?department=finance">Finance</a></li>
-							<li><a href="#">Human Resource</a></li>
-							<li><a href="#">Marketing</a></li>
-							<li><a href="#">IT</a></li>
-							<li><a href="#">Transport</a></li>
+							<li><a href="../department_reports/department_reports.php?department=human_resource">Human Resource</a></li>
+							<li><a href="../department_reports/department_reports.php?department=marketing">Marketing</a></li>
+							<li><a href="../department_reports/department_reports.php?department=it">IT</a></li>
+							<li><a href="../department_reports/department_reports.php?department=transport">Transport</a></li>
 							<ul>
 			    </div>
 			    <div class="modal-footer">

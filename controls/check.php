@@ -10,16 +10,14 @@
 
 
 require 'db.php';
-$department = $mysqli->escape_string($_GET['department']);
-$result = $mysqli->query("SELECT  budget FROM department where name ='$department' ");
+$department_budget = $mysqli->escape_string($_GET['department']);
+$result_department_budget = $mysqli->query("SELECT  budget FROM department where name ='$department_budget' ");
 
 
-if ($result->num_rows > 0) {
-    $budget_result = $result->fetch_assoc();
+if ($result_department_budget->num_rows > 0) {
+    $budget_result = $result_department_budget->fetch_assoc();
 
     $budget = $budget_result['budget'];
-    var_dump($budget);
-    die();
 
 
 } else {
