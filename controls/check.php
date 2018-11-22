@@ -1,34 +1,20 @@
-// php code for view budget by department
+// php code for view total leaves
 
 <?php
-/**
- * Created by PhpStorm.
- * User: HP
- * Date: 11/21/2018
- * Time: 11:01 PM
- */
+
+$result = $mysqli->query("SELECT employee.name, employee.id, sum(leave_application.length) FROM employee left join employment_details on employee.id=employment_details.employ_id  
+left join leave_application on leave_application.employ_id = employee.id where department_id ='$department_id' group by leave_application.employ_id ");
 
 
-require 'db.php';
-$department_budget = $mysqli->escape_string($_GET['department']);
-$result_department_budget = $mysqli->query("SELECT  budget FROM department where name ='$department_budget' ");
 
 
-if ($result_department_budget->num_rows > 0) {
-    $budget_result = $result_department_budget->fetch_assoc();
 
-    $budget = $budget_result['budget'];
-
-
-} else {
-    header("location:../error.php");
-
-} ?>
+?>
 
 //php code for employe report table
 
-<?php
 
+<?php
 require 'db.php';
 $result = $mysqli->query("SELECT  employee.id,employee.name,employment_details.job_title,department.name,payroll_information.pay_grade_level FROM employee left join employee_details on employee.id = employee_details.id ");
 
