@@ -34,6 +34,8 @@ if ($result->num_rows > 0) {
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
     <link rel="stylesheet" href="assets/css/main.css"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
 </head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
@@ -149,6 +151,34 @@ if ($result->num_rows > 0) {
             opacity: 1
         }
     }
+a.button3{
+display:inline-block;
+padding:0.3em 1.2em;
+margin:0 0.3em 0.3em 0.9;
+margin-left:20px;
+border-radius:2em;
+box-sizing: border-box;
+text-decoration:none;
+font-family:'Roboto',sans-serif;
+font-weight:300;
+color:#FFFFFF;
+background-color:#4eb5f1;
+text-align:center;
+transition: all 0.2s;
+}
+a.button3:hover{
+background-color:#4095c6;
+}
+@media all and (max-width:30em){
+a.button3{
+display:block;
+margin:0.2em auto;
+}
+}
+
+	
+
+
 </style>
 <body>
 
@@ -177,6 +207,50 @@ if ($result->num_rows > 0) {
 </section>
 
 <!-- One -->
+<br>
+<hr>
+<div class="w3_agileits_main_grid w3l_main_grid">
+							<span class="agileits_grid">
+								<label>  &nbsp;  Order By Job Title </label>
+								<select name="country">
+									<option value="none" selected="" disabled="">Select job title</option>
+									<option value="Ph">hr_manager</option>
+									<option value="Po">software_engineering</option>
+									<option value="So">quality_assuarance_engineer</option>
+									<option value="Sp">programmer</option>
+									<option value="Sp">software_architecturer</option>
+
+
+								</select>
+							</span>
+							<div class="button-container">
+  <br>
+<a href="something" class="button3">Submit</a>
+						</div>
+						<hr>
+						
+						
+
+<div class="w3_agileits_main_grid w3l_main_grid">
+							<span class="agileits_grid">
+								<label> &nbsp;   Order By PayGrade </label>
+								<select name="country">
+									<option value="none" selected="" disabled="">Select paygrade</option>
+									<option value="Ph">1</option>
+									<option value="Po">2</option>
+									<option value="So">3</option>
+									<option value="Sp">4</option>
+									
+
+								</select>
+							</span>
+							<br>
+							<a href="something" class="button3"> Submit</a>
+	</div>
+						<br>
+						<hr>
+
+<br><br><br>
 <div>
 <h2 style="text-align:center"> EMPLOYEE REPORT</h2>
 <table id="myTable">
@@ -237,3 +311,6 @@ if ($result->num_rows > 0) {
 
     </div>
 </section>
+
+
+
