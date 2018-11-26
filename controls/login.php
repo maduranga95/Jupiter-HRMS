@@ -24,7 +24,7 @@ else { // User exists
             }
             else if ($user['user_type']== 'employee')
             {
-                header("location:../views/employee/employee.php");
+                header("location:../views/employee_home/employee_home.html");
             }
             else{
                 header("location: ../login_fail.html");

@@ -5,8 +5,8 @@ require '../../controls/db.php';
 
 
 
-$result = $mysqli->query("SELECT employee.id,employee.name,leave_application.reason,leave_application.start_date,leave_application.End_date,leave_application.length, 
-sum(personal_leave_details.annual+personal_leave_details.casual+personal_leave_details.no_pay+personal_leave_details.maternity) as duration 
+$result = $mysqli->query("SELECT employee.id,employee.name,leave_application.reason,leave_application.start_date,leave_application.End_date,leave_application.length,leave_application.application_id,
+personal_leave_details.annual+personal_leave_details.casual+personal_leave_details.no_pay+personal_leave_details.maternity as duration 
 FROM leave_application left join employee on leave_application.employ_id=employee.id 
 left join personal_leave_details on leave_application.employ_id=personal_leave_details.Employ_id");
 
@@ -157,9 +157,12 @@ header("location:../error.php");
 <!--									<td><button class="button1" > Approve</button></td>-->
 <!--									<td><button class="button3"> Decline</button></td>-->
 <!--								</tr>-->
+
+
+
                        <?php foreach ($records as $r) { ?>
                         <tr>
-                            <form action="../controls/alter_leave_application.php" method="post">
+                            <form action="../../controls/alter_leave_application.php" method="post">
                                 <td><?php echo $r->id; ?></td>
                                 <td><?php echo $r->name; ?></td>
                                 <td><?php echo $r->reason; ?></td>
@@ -167,6 +170,12 @@ header("location:../error.php");
                                 <td><?php echo $r->End_date; ?></td>
                                 <td><?php echo $r->length; ?></td>
                                 <td><?php echo $r->duration; ?></td>
+<!---->
+<!--                                if ($r->approve_status==1) {-->
+<!--                                echo "<td><input class='btn btn-danger' type='submit' value='Collected' name='update' disabled></td>";-->
+<!--                                } else {-->
+<!--                                echo "<td><input class='btn btn-danger' type='submit' value='Collected' name='update'></td>";-->
+<!--                                }-->
                                 <td><input class="btn btn-dark text-light" type="submit" value="Accept"
                                            name="accept"></td>
                                 <td><input class="btn btn-dark text-light" type="submit" value="Reject"
