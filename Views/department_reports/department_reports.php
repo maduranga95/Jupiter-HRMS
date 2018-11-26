@@ -225,7 +225,7 @@ if ($result_department_budget->num_rows > 0) {
                 </header>
             </div>
             <ul class="actions">
-                <li><a href="leave_report.html" class="button alt">CHECK REPORT</a></li>
+                <li><a href="leave_report.php?department_id=<?php echo $department_id ?>" class="button alt">CHECK REPORT</a></li>
             </ul>
         </article>
     </div>

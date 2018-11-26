@@ -1,3 +1,37 @@
+
+<?php
+
+require '../../controls/db.php';
+$department_id = $mysqli->escape_string($_GET['department_id']);
+
+
+
+$result = $mysqli->query("SELECT employee.name,leave_application.employ_id,leave_application.length 
+from leave_application left join employee on leave_application.employ_id=employee.id 
+LEFT JOIN employment_details on employee.id=employment_details.employ_id 
+WHERE employment_details.department_id =$department_id");
+
+$result_sum = $mysqli->query("SELECT sum(leave_application.length ) as sum1
+from leave_application left join employee on leave_application.employ_id=employee.id
+ LEFT JOIN employment_details on employee.id=employment_details.employ_id
+  WHERE employment_details.department_id =1");
+
+
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_object()) {
+        $records[] = $row;
+    }
+    $result->free();
+
+    $sum = $result_sum->fetch_object();
+
+} else {
+
+    header("location:../error.php");
+}
+
+
+?>
 <html>
 	<head>
 		<title>Approve Leave</title>
@@ -49,14 +83,22 @@
                     </th>
 
                 </tr>
-								<tr>
+
+                                    <?php foreach ($records as $r) { ?>
+                        <tr>
+                            <td><?php echo $r->employ_id; ?></td>
+                            <td><?php echo $r->name; ?></td>
+
+                            <td><?php echo $r->length; ?></td>
+                        </tr>
+                        <?php } ?>
 
 
             </table>
             <br>
 
 						<h2> Total number of leaves by all employees from this department</h2>
-						<div1 style="margin-left:520px">45</div1>    <!-- Enter total leaves taken from the database here -->
+						<div1 style="margin-left:520px"><?php echo $sum->sum1 ?> </div1>    <!-- Enter total leaves taken from the database here -->
             <br><br><br>
 
 
