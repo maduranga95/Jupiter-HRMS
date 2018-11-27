@@ -105,7 +105,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 					<nav id="nav">
 						<a href="HR_manager.php">Home</a>
 						
-						<a href="leave_application/leave_application.html">Apply Leave</a>
+						<a href="../leave_application/leave_application.php">Apply Leave</a>
 							<a href="../customize/customize.html">Customize</a>
 					</nav>
 				</div>

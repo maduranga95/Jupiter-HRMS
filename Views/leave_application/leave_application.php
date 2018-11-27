@@ -4,6 +4,16 @@ author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
+
+<?php
+            if (isset($_GET['mssg']) && $_GET['mssg']=='success') {
+                echo "<script type='text/javascript'>alert('Successfully Applied for leave!');</script>";
+}
+else if  (isset($_GET['mssg']) && $_GET['mssg']=='failed') {
+    echo "<script type='text/javascript'>alert('Application process failed');</script>";
+}
+    ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,22 +43,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="main">
 			<h1 class="w3layouts_head">Leave Application Form</h1>
 				<div class="w3layouts_main_grid">
-					<form action="#" method="post" class="w3_form_post">
+					<form action="../../controls/apply_leave.php" method="post" class="w3_form_post">
 						<div class="w3_agileits_main_grid w3l_main_grid">
 							<span class="agileits_grid">
 								<label>Username </label>
-								<input type="text" name="Task" placeholder="Your Name" required="">
+								<input type="text" name="username" placeholder="Your Name" required="">
 							</span>
 						</div>
 						<div class="w3_agileits_main_grid w3l_main_grid">
 							<span class="agileits_grid">
 								<label>Leave Type </label>
-								<select name="country">
+								<select name="type">
 									<option value="none" selected="" disabled="">Select type</option>
-									<option value="Ph">Annual</option>
-									<option value="Po">Casual</option>
-									<option value="So">Nopay</option>
-									<option value="Sp">Maternity</option>
+									<option value="annual">Annual</option>
+									<option value="casual">Casual</option>
+									<option value="no_pay">Nopay</option>
+									<option value="maternity		">Maternity</option>
 
 								</select>
 							</span>
@@ -57,7 +67,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="w3_agileits_main_grid w3l_main_grid">
 							<span class="agileits_grid">
 								<label>Reason for Leave </label>
-								<input type="text" name="Task" placeholder="Your Reason" required="">
+								<input type="text" name="reason" placeholder="Your Reason" required="">
 							</span>
 						</div>
 
@@ -65,7 +75,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<span class="agileinfo_grid">
 								<label>Start Date </label>
 								<div class="agileits_w3layouts_main_gridl">
-									<input class="date" id="datepicker" name="Text" type="text" value="mm/dd/yyyy" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}" required="">
+									<input class="date" id="datepicker" name="start_date" type="text" value="mm/dd/yyyy" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}" required="">
 								</div>
 
 									<div class="clear"> </div>
@@ -76,7 +86,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<span class="agileinfo_grid">
 								<label>End Date </label>
 								<div class="agileits_w3layouts_main_gridl">
-									<input class="date" id="datepicker1" name="Text" type="text" value="mm/dd/yyyy" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}" required="">
+									<input class="date" id="datepicker1" name="end_date" type="text" value="mm/dd/yyyy" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}" required="">
 								</div>
 
 									<div class="clear"> </div>
