@@ -1,10 +1,36 @@
 
 <?php
 require '../../controls/db.php';
-$result = $mysqli->query("SELECT employee.id,employee.name,employment_details.job_title,department.name,payroll_information.pay_grade_level 
+
+if(isset($_POST['job_title'])){
+
+    $job_title = (string)$_POST['job_title'];
+    $result = $mysqli->query("SELECT employee.id,employee.name,employment_details.job_title,department.name,payroll_information.pay_grade_level 
+    FROM employee left join employment_details on employee.id = employment_details.employ_id 
+    left join payroll_information on employee.id = payroll_information.employ_id left join department 
+    on employment_details.department_id=department.department_id where employment_details.job_title='$job_title'");
+
+
+
+
+}
+
+elseif (isset($_POST['pay_grade'])){
+    $pay_grade = $_POST['pay_grade'];
+    $result = $mysqli->query("SELECT employee.id,employee.name,employment_details.job_title,department.name,payroll_information.pay_grade_level 
+FROM employee left join employment_details on employee.id = employment_details.employ_id left join payroll_information on employee.id = payroll_information.employ_id 
+left join department on employment_details.department_id=department.department_id
+ where payroll_information.pay_grade_level='$pay_grade'");
+}
+
+else {
+
+    $result = $mysqli->query("SELECT employee.id,employee.name,employment_details.job_title,department.name,payroll_information.pay_grade_level 
 FROM employee left join employment_details on employee.id = employment_details.employ_id 
 left join payroll_information on employee.id = payroll_information.employ_id 
 left join department on employment_details.department_id=department.department_id");
+
+}
 
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_object()) {
@@ -209,43 +235,42 @@ margin:0.2em auto;
 <!-- One -->
 <br>
 <hr>
+<form action="../employee_report/employee_report.php" method="post">
 <div class="w3_agileits_main_grid w3l_main_grid">
 							<span class="agileits_grid">
 								<label>  &nbsp;  Order By Job Title </label>
-								<select name="country">
+								<select name="job_title">
 									<option value="none" selected="" disabled="">Select job title</option>
-									<option value="Ph">hr_manager</option>
-									<option value="Po">software_engineering</option>
-									<option value="So">quality_assuarance_engineer</option>
-									<option value="Sp">programmer</option>
-									<option value="Sp">software_architecturer</option>
+									<option value="hr_manager">hr_manager</option>
+									<option value="softwere_engineer">software_engineering</option>
+									<option value="quality_assuarance_engineer">quality_assuarance_engineer</option>
+									<option value="programmer">programmer</option>
+									<option value="software_architecturer">software_architecturer</option>
 
 
 								</select>
 							</span>
 							<div class="button-container">
   <br>
-<a href="something" class="button3">Submit</a>
+<input type="submit" value="submit" class="button3">
 						</div>
 						<hr>
-						
-						
-
+    <form action="../employee_report/employee_report.php" method="post">
 <div class="w3_agileits_main_grid w3l_main_grid">
 							<span class="agileits_grid">
 								<label> &nbsp;   Order By PayGrade </label>
-								<select name="country">
+								<select name="pay_grade">
 									<option value="none" selected="" disabled="">Select paygrade</option>
-									<option value="Ph">1</option>
-									<option value="Po">2</option>
-									<option value="So">3</option>
-									<option value="Sp">4</option>
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
 									
 
 								</select>
 							</span>
 							<br>
-							<a href="something" class="button3"> Submit</a>
+							<input type="submit" value="submit" class="button3"> </input>
 	</div>
 						<br>
 						<hr>

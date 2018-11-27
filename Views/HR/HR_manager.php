@@ -1,3 +1,15 @@
+<?php
+if (isset($_GET['mssg']) && $_GET['mssg']=='success') {
+    echo "<script type='text/javascript'>alert('Success');</script>";
+}
+else if  (isset($_GET['mssg']) && $_GET['mssg']=='failed') {
+    echo "<script type='text/javascript'>alert('Failed');</script>";
+}
+?>
+
+
+
+
 
 <!DOCTYPE HTML>
 <!--

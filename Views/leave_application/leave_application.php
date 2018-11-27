@@ -75,7 +75,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<span class="agileinfo_grid">
 								<label>Start Date </label>
 								<div class="agileits_w3layouts_main_gridl">
-									<input class="date" id="datepicker" name="start_date" type="text" value="mm/dd/yyyy" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}" required="">
+									<input class="date" id="datepicker" name="start_date" type="text" value="mm/dd/yy       yy" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}" required="">
 								</div>
 
 									<div class="clear"> </div>
