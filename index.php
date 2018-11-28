@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -61,7 +62,7 @@
 				</form>
 
 					<div class="text-center w-full p-t-25 p-b-230">
-						<a href="login_fail.html" class="txt1">
+						<a href="login_fail.php" class="txt1">
 							Forgot Username / Password?
 						</a>
 					</div>

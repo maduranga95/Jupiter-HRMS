@@ -1,3 +1,4 @@
+<?php session_start();?>
 <?php
 /* User login process, checks if user exists and password is correct */
 
@@ -10,12 +11,18 @@ $result = $mysqli->query("SELECT * FROM user WHERE username='$username'");
 
 
 if ( $result->num_rows == 0 ){ // User doesn't exist
-    header("location:../views/login_fail.html");
+    header("location:../views/login_fail.php");
 }
 else { // User exists
     $user = $result->fetch_assoc();
 
-    if ( $_POST['pass'] == $user['password']) {
+
+    $pass = md5($_POST['pass']);
+
+    if ( $pass == $user['password']) {
+
+
+        $_SESSION['user_id'] = $user['user_id'];
 
 
             if($user['user_type']== 'hr_manager') {
@@ -24,17 +31,17 @@ else { // User exists
             }
             else if ($user['user_type']== 'employee')
             {
-                header("location:../views/employee_home/employee_home.html");
+                header("location:../views/employee_home/employee_home.php");
             }
             else{
-                header("location: ../login_fail.html");
+                header("location: ../login_fail.php");
             }
         }
 
 
 
     else {
-        header("location: ../login_fail.html");
+        header("location: ../login_fail.php");
     }
 }
 

@@ -1,3 +1,4 @@
+<?php session_start();?>
 <?php
 if (isset($_GET['mssg']) && $_GET['mssg']=='success') {
     echo "<script type='text/javascript'>alert('Success');</script>";
@@ -118,7 +119,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 						<a href="HR_manager.php">Home</a>
 						
 						<a href="../leave_application/leave_application.php">Apply Leave</a>
-							<a href="../customize/customize.html">Customize</a>
+							<a href="../customize/customize.php">Customize</a>
 					</nav>
 				</div>
 			</header>

@@ -1,4 +1,4 @@
-
+<?php session_start();?>
 <?php
 require '../../controls/db.php';
 

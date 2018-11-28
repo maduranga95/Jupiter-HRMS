@@ -1,3 +1,4 @@
+<?php session_start();?>
 <?php
 /**
  * Created by PhpStorm.
@@ -34,8 +35,12 @@ $datetime2 = new DateTime($end_date);
 $length = 1 + $datetime2->diff($datetime1)->d;
 
 
-$sql = "INSERT INTO leave_application (employ_id, reason,start_date, end_date,length,type) "
+$stmt = $mysqli->("INSERT INTO leave_application (employ_id, reason,start_date, end_date,length,type)) "
     . "VALUES ('$employee_id','$reason', '$start_date1', '$end_date1','$length','$type')";
+
+
+$stmt->bindparam(':na')
+
 
 
 

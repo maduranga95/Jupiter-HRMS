@@ -3,12 +3,13 @@
 
 require '../../controls/db.php';
 
+$supervisor_id = $_SESSION['user_id'];
 
-$result = $mysqli->query("SELECT employee.id,employee.name,leave_application.reason,leave_application.start_date,leave_application.End_date,leave_application.length,
-leave_application.application_id, leave_application.approve_status, personal_leave_details.annual+personal_leave_details.casual+personal_leave_details.no_pay+personal_leave_details.maternity as duration 
-FROM leave_application 
-left join employee on leave_application.employ_id=employee.id 
-left join personal_leave_details on leave_application.employ_id=personal_leave_details.Employ_id");
+
+$result = $mysqli->query("SELECT employee.id,employee.name,leave_application.reason,leave_application.start_date,
+leave_application.End_date,leave_application.length, leave_application.application_id, leave_application.approve_status, personal_leave_details.annual+personal_leave_details.casual+personal_leave_details.no_pay+personal_leave_details.maternity 
+as duration FROM leave_application left join employee on leave_application.employ_id=employee.id left join personal_leave_details on leave_application.employ_id=personal_leave_details.Employ_id 
+where employee.supervisor_id='$supervisor_id'");
 
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_object()) {
