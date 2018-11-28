@@ -152,6 +152,20 @@ body {font-family: Arial, Helvetica, sans-serif;}
 							<li><a href="../leave_application/leave_application.php" class="button alt">LEAVE APPLICATION</a></li>
 						</ul>
 					</article>
+					<article>
+						<div class="content">
+							<header>
+								<h3>Your Employee Details</h3>
+							</header>
+							<div class="image fit">
+								<img src="images/pic02.jpg" alt="" />
+							</div>
+							<p>This includes your your employee details. Visit here in order to view those.  </p>
+						</div>
+						<ul class="actions">
+							<li><a href="your_details.html" class="button alt">Your Details</a></li>
+						</ul>
+					</article>
 
 
 				</div>
