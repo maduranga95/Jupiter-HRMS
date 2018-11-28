@@ -163,7 +163,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 							<p>This includes your your employee details. Visit here in order to view those.  </p>
 						</div>
 						<ul class="actions">
-							<li><a href="your_details.html" class="button alt">Your Details</a></li>
+							<li><a href="your_details.php" class="button alt">Your Details</a></li>
 						</ul>
 					</article>
 

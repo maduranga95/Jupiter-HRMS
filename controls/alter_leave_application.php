@@ -37,8 +37,8 @@ where leave_application.application_id = $leave_id");
 
             $new_length = $available_length-$applied_length;
 
-            $leave_result = " DELIMITER $$ START TRANSACTION; update leave_application,personal_leave_details set leave_application.approve_status=1,personal_leave_details.$type=$new_length
-                              where leave_application.application_id=$leave_id and personal_leave_details.Employ_id= $employ_id; COMMIT; $$" ;
+            $leave_result = " update leave_application,personal_leave_details set leave_application.approve_status=1,personal_leave_details.$type=$new_length
+                              where leave_application.application_id=$leave_id and personal_leave_details.Employ_id= $employ_id" ;
 
             if($mysqli->query($leave_result)){
                 header("location:../Views/HR/approve_leave.php");

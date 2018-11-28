@@ -1,3 +1,32 @@
+<?php
+session_start();
+
+require '../../controls/db.php';
+
+$employ_id = $_SESSION['user_id'];
+
+$result = $mysqli->query("SELECT employee.id,employee.name,employment_details.job_title,department.name,payroll_information.pay_grade_level 
+FROM employee left join employment_details on employee.id = employment_details.employ_id 
+left join payroll_information on employee.id = payroll_information.employ_id 
+left join department on employment_details.department_id=department.department_id where employee.id=$employ_id");
+
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_object()) {
+        $records[] = $row;
+    }
+    $result->free();
+
+} else {
+    header("location:../error.php");
+
+}
+
+
+
+?>
+
+
+
 <!DOCTYPE HTML>
 <!--
 	Introspect by TEMPLATED
@@ -161,7 +190,7 @@ margin:0.2em auto;
 <!-- Header -->
 <header id="header">
     <div class="inner">
-        <a href="your_details.html" class="logo">JUPITER</a>
+        <a href="your_details.php" class="logo">JUPITER</a>
         <nav id="nav">
             <a href="department_reports.php">Your Details</a>
             <a href="generic.html">Generic</a>
@@ -204,6 +233,15 @@ margin:0.2em auto;
                     </th>
 
                 </tr>
+    <?php foreach ($records as $r) { ?>
+        <tr>
+            <td><?php echo $r->id; ?></td>
+            <td><?php echo $r->name; ?></td>
+            <td><?php echo $r->job_title; ?></td>
+            <td><?php echo $r->name; ?></td>
+            <td><?php echo $r->pay_grade_level; ?></td>
+        </tr>
+    <?php } ?>
     
             </table>
             <br>

@@ -9,11 +9,13 @@
 
 require 'db.php';
 
-$username = $mysqli->escape_string($_POST['username']);
 
-$result = $mysqli->query("SELECT * FROM employee where name ='$username' ");
-$id_result = $result->fetch_assoc(); // employ become arry with employ data
-$employee_id = $id_result['id'];
+//$username = $mysqli->escape_string($_POST['username']);
+//
+//$result = $mysqli->query("SELECT * FROM employee where name ='$username' ");
+//$id_result = $result->fetch_assoc(); // employ become arry with employ data
+
+$employee_id = $_SESSION['user_id'];
 
 
 $reason = $mysqli->escape_string($_POST['reason']);
@@ -35,11 +37,18 @@ $datetime2 = new DateTime($end_date);
 $length = 1 + $datetime2->diff($datetime1)->d;
 
 
-$stmt = $mysqli->("INSERT INTO leave_application (employ_id, reason,start_date, end_date,length,type)) "
+$sql= "INSERT INTO leave_application (employ_id, reason,start_date, end_date,length,type) "
     . "VALUES ('$employee_id','$reason', '$start_date1', '$end_date1','$length','$type')";
 
 
-$stmt->bindparam(':na')
+
+
+//$stmt->bindparam(':employ_id',$employee_id);
+//$stmt->bindparam(':reason',$reason);
+//$stmt->bindparam(':start_date',$start_date1);
+//$stmt->bindparam(':end_date',$$end_);
+//$stmt->bindparam(':employ_id',$employee_id);
+//$stmt->bindparam(':employ_id',$employee_id);
 
 
 

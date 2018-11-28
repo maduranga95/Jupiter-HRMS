@@ -7,12 +7,31 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 
 <?php
+
+require '../../controls/db.php';
+
+
             if (isset($_GET['mssg']) && $_GET['mssg']=='success') {
                 echo "<script type='text/javascript'>alert('Successfully Applied for leave!');</script>";
 }
 else if  (isset($_GET['mssg']) && $_GET['mssg']=='failed') {
     echo "<script type='text/javascript'>alert('Application process failed');</script>";
 }
+$employ_id = $_SESSION['user_id'];
+
+$result = $mysqli->query("select employee.Gender from employee where employee.id = $employ_id");
+
+if($result->num_rows>0){
+    $result_array = $result->fetch_assoc();
+
+    $gender = $result_array['Gender'];
+
+}
+else{
+    header("location:leave_application.php?mssg=failed");
+}
+
+
     ?>
 
 <!DOCTYPE html>
@@ -45,13 +64,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<h1 class="w3layouts_head">Leave Application Form</h1>
 				<div class="w3layouts_main_grid">
 					<form action="../../controls/apply_leave.php" method="post" class="w3_form_post">
-						<div class="w3_agileits_main_grid w3l_main_grid">
-							<span class="agileits_grid">
-								<label>Username </label>
-								<input type="text" name="username" placeholder="Your Name" required="">
-							</span>
-						</div>
-						<div class="w3_agileits_main_grid w3l_main_grid">
+<!--						<div class="w3_agileits_main_grid w3l_main_grid">-->
+<!--							<span class="agileits_grid">-->
+<!--								<label>Username </label>-->
+<!--								<input type="text" name="username" placeholder="Your Name" required="">-->
+<!--							</span>-->
+<!--						</div>-->
+
+                        <?php
+                                if($gender=='male'){
+                                    echo '			<div class="w3_agileits_main_grid w3l_main_grid">
 							<span class="agileits_grid">
 								<label>Leave Type </label>
 								<select name="type">
@@ -59,11 +81,37 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<option value="annual">Annual</option>
 									<option value="casual">Casual</option>
 									<option value="no_pay">Nopay</option>
-									<option value="maternity		">Maternity</option>
+							
 
 								</select>
 							</span>
-						</div>
+						</div>';
+
+                                }
+                                else{
+                                   echo  '<div class="w3_agileits_main_grid w3l_main_grid">
+							<span class="agileits_grid">
+								<label>Leave Type </label>
+								<select name="type">
+									<option value="none" selected="" disabled="">Select type</option>
+									<option value="annual">Annual</option>
+									<option value="casual">Casual</option>
+									<option value="no_pay">Nopay</option>
+									<option value="maternity">Maternity</option>
+
+								</select>
+							</span>
+						</div>';
+
+
+
+
+
+
+
+                                }
+                        ?>
+
 
 						<div class="w3_agileits_main_grid w3l_main_grid">
 							<span class="agileits_grid">
