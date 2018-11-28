@@ -120,6 +120,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 						
 						<a href="../leave_application/leave_application.php">Apply Leave</a>
 							<a href="../customize/customize.php">Customize</a>
+							<a href="../../logout.php">LogOut</a>
 					</nav>
 				</div>
 			</header>

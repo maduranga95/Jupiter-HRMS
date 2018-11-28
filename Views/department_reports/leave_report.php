@@ -58,6 +58,7 @@ if ($result->num_rows > 0) {
 						<a href="HR_manager.php">Home</a>
 						<a href="../HR/approve_leave.php">Approve Leave</a>
 						<a href="elements.html">Elements</a>
+						<a href="../../logout.php">LogOut</a>
 					</nav>
 				</div>
 			</header>

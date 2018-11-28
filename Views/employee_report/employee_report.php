@@ -216,6 +216,7 @@ margin:0.2em auto;
             <a href="department_reports.php">Home</a>
             <a href="generic.html">Generic</a>
             <a href="elements.html">Elements</a>
+			<a href="../../logout.php">LogOut</a>
         </nav>
     </div>
 </header>
